@@ -1,0 +1,121 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Gestion Compte",
+        "description": "Documentation de l'API Laravel Gestion Compte",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api",
+            "description": "Serveur local de développement"
+        }
+    ],
+    "paths": {
+        "/comptes": {
+            "get": {
+                "tags": [
+                    "Comptes"
+                ],
+                "summary": "Récupérer la liste des comptes",
+                "operationId": "5fdb1d9d6a1e1d81e65a694d33a249c6",
+                "responses": {
+                    "200": {
+                        "description": "Liste des comptes récupérée avec succès"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Comptes"
+                ],
+                "summary": "Créer un nouveau compte",
+                "operationId": "a896aedada2e34a114a6b2bda0468e82",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "client_id",
+                                    "type",
+                                    "solde"
+                                ],
+                                "properties": {
+                                    "client_id": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "solde": {
+                                        "type": "number",
+                                        "format": "float"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Compte créé avec succès"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Compte": {
+                "title": "Compte",
+                "description": "Modèle représentant un compte bancaire",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": "b4c2e123-67f2-4a21-9a0b-71f14e0193c3"
+                    },
+                    "user_id": {
+                        "type": "string",
+                        "example": "9c95f123-02c9-4894-9d87-8e68e7b2cc29"
+                    },
+                    "numero": {
+                        "type": "string",
+                        "example": "CNT20251023000123"
+                    },
+                    "solde": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 150000.75
+                    },
+                    "type": {
+                        "type": "string",
+                        "example": "courant"
+                    },
+                    "status": {
+                        "type": "string",
+                        "example": "actif"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-10-23T10:00:00Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-10-23T10:00:00Z"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Comptes",
+            "description": "Comptes"
+        }
+    ]
+}

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Http\Controllers\AccessTokenController;
 use Laravel\Passport\Http\Controllers\PersonalAccessTokenController;
 use Laravel\Passport\Http\Controllers\TransientTokenController;
+use App\Http\Controllers\CompteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/oauth/token', [AccessTokenController::class, 'issueToken']);
 Route::post('/oauth/personal-access-tokens', [PersonalAccessTokenController::class, 'store']);
 Route::post('/oauth/transient-tokens', [TransientTokenController::class, 'store']);
+
+Route::get('/comptes', [CompteController::class, 'index']);
+Route::post('/comptes', [CompteController::class, 'store']);

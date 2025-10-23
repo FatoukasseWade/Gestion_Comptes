@@ -43,4 +43,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Relation: User has many comptes
+     */
+    public function comptes()
+    {
+        return $this->hasMany(Compte::class);
+    }
 }
